@@ -26,4 +26,11 @@ extension UIViewController {
         let menuBarItem = UIBarButtonItem(customView: button)
         return menuBarItem
     }
+    
+    func createCustomLogoBarButtonItem(image: String) -> UIBarButtonItem {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: image)?.withRenderingMode(.alwaysOriginal), for: .normal)
+        let menuBarItem = UIBarButtonItem(customView: button)
+        return menuBarItem
+    }
 }
