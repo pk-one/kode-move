@@ -12,7 +12,7 @@ class PopularMovieCollectionViewCell: UICollectionViewCell {
     private let posterImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 15
-        imageView.clipsToBounds = true
+        imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -67,14 +67,12 @@ extension PopularMovieCollectionViewCell {
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 5),
-//            titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
             titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
             titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
         ])
         
         NSLayoutConstraint.activate([
             dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 0),
-//            dateLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
             dateLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
             dateLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
         ])

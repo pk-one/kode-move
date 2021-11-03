@@ -7,14 +7,16 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
-    
+class HomeViewController: UIViewController{
+        
     private let containerTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.separatorStyle = .none
         tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "HomeTableViewCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear
+        tableView.showsVerticalScrollIndicator = false
+        tableView.showsHorizontalScrollIndicator = false
         return tableView
     }()
     
@@ -27,6 +29,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setupViews() {
+        title = ""
         view.backgroundColor = #colorLiteral(red: 0.09019607843, green: 0.09019607843, blue: 0.1294117647, alpha: 1)
         view.addSubview(containerTableView)
     }
@@ -41,7 +44,6 @@ class HomeViewController: UIViewController {
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = #colorLiteral(red: 0.09019607843, green: 0.09019607843, blue: 0.1294117647, alpha: 1)
         self.navigationController?.navigationBar.standardAppearance = appearance;
-        self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
         let searchButton = createCustomBarButtonItem(selector: #selector(searchButton), title: "", image: "magnifyingglass", enabled: true)
         let logoButton = createCustomLogoBarButtonItem(image: "logo")
         navigationItem.leftBarButtonItem = logoButton
@@ -52,11 +54,11 @@ class HomeViewController: UIViewController {
     @objc private func searchButton() { }
     
     @objc private func noTapped() { }
-    
 }
 
 //MARK: - UITableViewDataSource
 extension HomeViewController: UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -67,7 +69,8 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(HomeTableViewCell.self, for: indexPath)
-        
+        cell.delegate = self
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -102,10 +105,10 @@ extension HomeViewController: UITableViewDataSource {
 
 //MARK: - UITableViewDelegate
 extension HomeViewController: UITableViewDelegate {
-    
-    
+
 }
 
+//MARK: - setConstraint
 extension HomeViewController {
     private func setConstraint() {
         NSLayoutConstraint.activate([
@@ -114,5 +117,14 @@ extension HomeViewController {
             containerTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             containerTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+    }
+}
+
+extension HomeViewController: HomeTableViewCellDelegate, UINavigationControllerDelegate {
+    func tappedPopularMove(_ indexPath: Int?) {
+        let informationViewController = InformationViewController()
+        informationViewController.testIndex = indexPath
+        self.navigationController?.delegate = self
+        self.navigationController?.pushViewController(informationViewController, animated: true)
     }
 }
