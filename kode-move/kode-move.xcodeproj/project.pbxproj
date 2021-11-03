@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A05397E0273307E50016DC10 /* PopularMoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05397DF273307E50016DC10 /* PopularMoviesModel.swift */; };
+		A05397E3273308660016DC10 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A05397E2273308660016DC10 /* Alamofire */; };
+		A05397E7273308B30016DC10 /* SessionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05397E6273308B30016DC10 /* SessionInfo.swift */; };
+		A05397E92733094B0016DC10 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05397E82733094B0016DC10 /* NetworkService.swift */; };
+		A05397EC2733267F0016DC10 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A05397EB2733267F0016DC10 /* Kingfisher */; };
+		A05397EE2733476D0016DC10 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05397ED2733476C0016DC10 /* DateFormatter.swift */; };
 		A06E38452732DB5A0059EAB8 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06E38442732DB5A0059EAB8 /* UIView + Extension.swift */; };
 		A06E38472732EDCA0059EAB8 /* WatchNowButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06E38462732EDCA0059EAB8 /* WatchNowButtonTableViewCell.swift */; };
 		A0C5A84B2731828400A4B1D4 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C5A84A2731828400A4B1D4 /* UIViewController + Extension.swift */; };
@@ -27,6 +33,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A05397DF273307E50016DC10 /* PopularMoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesModel.swift; sourceTree = "<group>"; };
+		A05397E6273308B30016DC10 /* SessionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionInfo.swift; sourceTree = "<group>"; };
+		A05397E82733094B0016DC10 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		A05397ED2733476C0016DC10 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateFormatter.swift; path = ../../../../DateFormatter.swift; sourceTree = "<group>"; };
 		A06E38442732DB5A0059EAB8 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		A06E38462732EDCA0059EAB8 /* WatchNowButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNowButtonTableViewCell.swift; sourceTree = "<group>"; };
 		A0C5A84A2731828400A4B1D4 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
@@ -53,12 +63,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A05397EC2733267F0016DC10 /* Kingfisher in Frameworks */,
+				A05397E3273308660016DC10 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A05397DE273307740016DC10 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A05397DF273307E50016DC10 /* PopularMoviesModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A05397E4273308910016DC10 /* Servicies */ = {
+			isa = PBXGroup;
+			children = (
+				A05397E5273308A40016DC10 /* NetworkService */,
+			);
+			path = Servicies;
+			sourceTree = "<group>";
+		};
+		A05397E5273308A40016DC10 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				A05397E6273308B30016DC10 /* SessionInfo.swift */,
+				A05397E82733094B0016DC10 /* NetworkService.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
 		A0C5A84C2731828B00A4B1D4 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +136,9 @@
 				A0C7A72627314AC900D09D74 /* Applications */,
 				A0C7A72727314AD800D09D74 /* Controllers */,
 				A0C7A72B273158AB00D09D74 /* Extensions */,
+				A05397DE273307740016DC10 /* Models */,
 				A0E2CF5E27316C1300DD2B88 /* Helpers */,
+				A05397E4273308910016DC10 /* Servicies */,
 				A0C5A84D273184FC00A4B1D4 /* Assets.xcassets */,
 				A0C7A71D2731493400D09D74 /* LaunchScreen.storyboard */,
 				A0C7A7202731493400D09D74 /* Info.plist */,
@@ -160,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				A0E2CF5F27316C2D00DD2B88 /* Constants.swift */,
+				A05397ED2733476C0016DC10 /* DateFormatter.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -180,6 +220,10 @@
 			dependencies = (
 			);
 			name = "kode-move";
+			packageProductDependencies = (
+				A05397E2273308660016DC10 /* Alamofire */,
+				A05397EB2733267F0016DC10 /* Kingfisher */,
+			);
 			productName = "kode-move";
 			productReference = A0C7A70F2731493200D09D74 /* kode-move.app */;
 			productType = "com.apple.product-type.application";
@@ -208,6 +252,10 @@
 				Base,
 			);
 			mainGroup = A0C7A7062731493200D09D74;
+			packageReferences = (
+				A05397E1273308660016DC10 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				A05397EA2733267F0016DC10 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = A0C7A7102731493200D09D74 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -238,16 +286,20 @@
 				A0C5A8592731B97300A4B1D4 /* CastCollectionViewCell.swift in Sources */,
 				A0C5A84B2731828400A4B1D4 /* UIViewController + Extension.swift in Sources */,
 				A0C7A7132731493200D09D74 /* AppDelegate.swift in Sources */,
+				A05397E92733094B0016DC10 /* NetworkService.swift in Sources */,
+				A05397EE2733476D0016DC10 /* DateFormatter.swift in Sources */,
 				A06E38452732DB5A0059EAB8 /* UIView + Extension.swift in Sources */,
 				A0C5A85B2731C35300A4B1D4 /* ContextInformationTableViewCell.swift in Sources */,
 				A0E2CF5D27315CC000DD2B88 /* PopularMovieCollectionViewCell.swift in Sources */,
 				A0C5A8572731B91100A4B1D4 /* CastCollectionView.swift in Sources */,
 				A0C5A8542731B6B300A4B1D4 /* CellForCollectionInformationTableViewCell.swift in Sources */,
 				A0C5A8522731B67B00A4B1D4 /* InformationViewController.swift in Sources */,
+				A05397E0273307E50016DC10 /* PopularMoviesModel.swift in Sources */,
 				A0C7A72A2731562E00D09D74 /* HomeTableViewCell.swift in Sources */,
 				A0C7A7152731493200D09D74 /* SceneDelegate.swift in Sources */,
 				A0C7A72D273158C800D09D74 /* Reusable.swift in Sources */,
 				A06E38472732EDCA0059EAB8 /* WatchNowButtonTableViewCell.swift in Sources */,
+				A05397E7273308B30016DC10 /* SessionInfo.swift in Sources */,
 				A0E2CF6027316C2D00DD2B88 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,6 +508,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A05397E1273308660016DC10 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.3;
+			};
+		};
+		A05397EA2733267F0016DC10 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A05397E2273308660016DC10 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A05397E1273308660016DC10 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		A05397EB2733267F0016DC10 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A05397EA2733267F0016DC10 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A0C7A7072731493200D09D74 /* Project object */;
 }

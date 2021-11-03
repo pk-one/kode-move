@@ -12,12 +12,15 @@ protocol HomeTableViewCellDelegate: AnyObject {
 }
 
 class HomeTableViewCell: UITableViewCell {
+    
+    let networkService: NetworkService = NetworkServiceImplementation()
 
     private var popularMoviesCollectionView: UICollectionView!
         
     weak var delegate: HomeTableViewCellDelegate?
     
-    var index: Int?
+    var popularMovies: PopularMoviesModel? = nil
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -25,10 +28,24 @@ class HomeTableViewCell: UITableViewCell {
         setupViews()
         setDelegate()
         setConstraint()
+        getPopularMovies()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func getPopularMovies() {
+        networkService.getPopularMovies { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let popularMoviesArray):
+                self.popularMovies = popularMoviesArray
+                self.popularMoviesCollectionView.reloadData()
+            }
+        }
     }
     
     private func setupViews() {
@@ -59,12 +76,13 @@ class HomeTableViewCell: UITableViewCell {
 //MARK: - UICollectionViewDataSource
 extension HomeTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return 10
+        return popularMovies?.results.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(PopularMovieCollectionViewCell.self, for: indexPath)
-        cell.configure(image: "poster-1")
+        guard let popularMovies = popularMovies else { return UICollectionViewCell() }
+        cell.configure(model: popularMovies, indexPath: indexPath)
         return cell
     }
 }

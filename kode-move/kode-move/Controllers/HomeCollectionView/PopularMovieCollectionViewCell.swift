@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PopularMovieCollectionViewCell: UICollectionViewCell {
     
@@ -51,8 +52,13 @@ class PopularMovieCollectionViewCell: UICollectionViewCell {
         self.addSubview(dateLabel)
     }
     
-    func configure(image: String) {
-        posterImageView.image = UIImage(named: image)
+    func configure(model: PopularMoviesModel, indexPath: IndexPath) {
+        let host = "https://image.tmdb.org/t/p/w500"
+        guard let url = URL(string: host + model.results[indexPath.row].posterUrl) else { return }
+        posterImageView.kf.setImage(with: url)
+        titleLabel.text = model.results[indexPath.row].title
+        let date = model.results[indexPath.row].date
+        dateLabel.text = dateFormated(from: date)
     }
 }
 
