@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CastCollectionViewCell: UICollectionViewCell {
     
@@ -53,8 +54,16 @@ class CastCollectionViewCell: UICollectionViewCell {
         self.addSubview(characterLabel)
     }
     
-    func configure(image: String) {
-        profileImageView.image = UIImage(named: image)
+    func configure(model: CastModel, indexPath: IndexPath) {
+        let host = "https://image.tmdb.org/t/p/w500"
+        if model.cast[indexPath.row].avatar == nil {
+            profileImageView.image = UIImage(named: "no-avatar")
+        } else {
+            guard let path = model.cast[indexPath.row].avatar else { return }
+            profileImageView.kf.setImage(with: URL(string: host + path))
+        }
+        nameLabel.text = model.cast[indexPath.row].name
+        characterLabel.text = model.cast[indexPath.row].character
     }
 }
 

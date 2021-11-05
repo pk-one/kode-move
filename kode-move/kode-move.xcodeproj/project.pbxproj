@@ -12,10 +12,10 @@
 		A05397E7273308B30016DC10 /* SessionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05397E6273308B30016DC10 /* SessionInfo.swift */; };
 		A05397E92733094B0016DC10 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05397E82733094B0016DC10 /* NetworkService.swift */; };
 		A05397EC2733267F0016DC10 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A05397EB2733267F0016DC10 /* Kingfisher */; };
-		A05397EE2733476D0016DC10 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05397ED2733476C0016DC10 /* DateFormatter.swift */; };
 		A05397F2273549C10016DC10 /* UITableViewCell + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05397F1273549C10016DC10 /* UITableViewCell + Extension.swift */; };
 		A06E38452732DB5A0059EAB8 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06E38442732DB5A0059EAB8 /* UIView + Extension.swift */; };
 		A06E38472732EDCA0059EAB8 /* WatchNowButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06E38462732EDCA0059EAB8 /* WatchNowButtonTableViewCell.swift */; };
+		A0748F692735C23900D7F22F /* DateFormater.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0748F682735C23900D7F22F /* DateFormater.swift */; };
 		A0C5A84B2731828400A4B1D4 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C5A84A2731828400A4B1D4 /* UIViewController + Extension.swift */; };
 		A0C5A84E273184FC00A4B1D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0C5A84D273184FC00A4B1D4 /* Assets.xcassets */; };
 		A0C5A8522731B67B00A4B1D4 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C5A8512731B67B00A4B1D4 /* InformationViewController.swift */; };
@@ -33,16 +33,20 @@
 		A0FF4871273554C700605557 /* HomePopularTVShowsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF4870273554C700605557 /* HomePopularTVShowsTableViewCell.swift */; };
 		A0FF48732735561800605557 /* PopularTVShowsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF48722735561800605557 /* PopularTVShowsCollectionViewCell.swift */; };
 		A0FF48752735569D00605557 /* PopularTVShowsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF48742735569C00605557 /* PopularTVShowsModel.swift */; };
+		A0FF487727355A8300605557 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF487627355A8300605557 /* MovieModel.swift */; };
+		A0FF487927355A9500605557 /* TVShowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF487827355A9500605557 /* TVShowModel.swift */; };
+		A0FF487B2735970800605557 /* TimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF487A2735970800605557 /* TimeFormatter.swift */; };
+		A0FF487D2735A92F00605557 /* CastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF487C2735A92F00605557 /* CastModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A05397DF273307E50016DC10 /* PopularMoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesModel.swift; sourceTree = "<group>"; };
 		A05397E6273308B30016DC10 /* SessionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionInfo.swift; sourceTree = "<group>"; };
 		A05397E82733094B0016DC10 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		A05397ED2733476C0016DC10 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateFormatter.swift; path = ../../../../DateFormatter.swift; sourceTree = "<group>"; };
 		A05397F1273549C10016DC10 /* UITableViewCell + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell + Extension.swift"; sourceTree = "<group>"; };
 		A06E38442732DB5A0059EAB8 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		A06E38462732EDCA0059EAB8 /* WatchNowButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNowButtonTableViewCell.swift; sourceTree = "<group>"; };
+		A0748F682735C23900D7F22F /* DateFormater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormater.swift; sourceTree = "<group>"; };
 		A0C5A84A2731828400A4B1D4 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		A0C5A84D273184FC00A4B1D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0C5A8512731B67B00A4B1D4 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +66,10 @@
 		A0FF4870273554C700605557 /* HomePopularTVShowsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePopularTVShowsTableViewCell.swift; sourceTree = "<group>"; };
 		A0FF48722735561800605557 /* PopularTVShowsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTVShowsCollectionViewCell.swift; sourceTree = "<group>"; };
 		A0FF48742735569C00605557 /* PopularTVShowsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTVShowsModel.swift; sourceTree = "<group>"; };
+		A0FF487627355A8300605557 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		A0FF487827355A9500605557 /* TVShowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowModel.swift; sourceTree = "<group>"; };
+		A0FF487A2735970800605557 /* TimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatter.swift; sourceTree = "<group>"; };
+		A0FF487C2735A92F00605557 /* CastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +90,9 @@
 			children = (
 				A05397DF273307E50016DC10 /* PopularMoviesModel.swift */,
 				A0FF48742735569C00605557 /* PopularTVShowsModel.swift */,
+				A0FF487627355A8300605557 /* MovieModel.swift */,
+				A0FF487827355A9500605557 /* TVShowModel.swift */,
+				A0FF487C2735A92F00605557 /* CastModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,7 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				A0E2CF5F27316C2D00DD2B88 /* Constants.swift */,
-				A05397ED2733476C0016DC10 /* DateFormatter.swift */,
+				A0FF487A2735970800605557 /* TimeFormatter.swift */,
+				A0748F682735C23900D7F22F /* DateFormater.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -294,18 +306,22 @@
 				A0C7A7172731493200D09D74 /* HomeViewController.swift in Sources */,
 				A0C5A8592731B97300A4B1D4 /* CastCollectionViewCell.swift in Sources */,
 				A0C5A84B2731828400A4B1D4 /* UIViewController + Extension.swift in Sources */,
+				A0FF487B2735970800605557 /* TimeFormatter.swift in Sources */,
 				A0C7A7132731493200D09D74 /* AppDelegate.swift in Sources */,
 				A05397E92733094B0016DC10 /* NetworkService.swift in Sources */,
 				A0FF4871273554C700605557 /* HomePopularTVShowsTableViewCell.swift in Sources */,
-				A05397EE2733476D0016DC10 /* DateFormatter.swift in Sources */,
+				A0FF487D2735A92F00605557 /* CastModel.swift in Sources */,
 				A06E38452732DB5A0059EAB8 /* UIView + Extension.swift in Sources */,
 				A0C5A85B2731C35300A4B1D4 /* ContextInformationTableViewCell.swift in Sources */,
 				A0E2CF5D27315CC000DD2B88 /* PopularMovieCollectionViewCell.swift in Sources */,
 				A0C5A8542731B6B300A4B1D4 /* CellForCollectionInformationTableViewCell.swift in Sources */,
+				A0FF487727355A8300605557 /* MovieModel.swift in Sources */,
 				A05397F2273549C10016DC10 /* UITableViewCell + Extension.swift in Sources */,
 				A0C5A8522731B67B00A4B1D4 /* InformationViewController.swift in Sources */,
 				A05397E0273307E50016DC10 /* PopularMoviesModel.swift in Sources */,
 				A0C7A72A2731562E00D09D74 /* HomePopularMovieTableViewCell.swift in Sources */,
+				A0FF487927355A9500605557 /* TVShowModel.swift in Sources */,
+				A0748F692735C23900D7F22F /* DateFormater.swift in Sources */,
 				A0FF48732735561800605557 /* PopularTVShowsCollectionViewCell.swift in Sources */,
 				A0C7A7152731493200D09D74 /* SceneDelegate.swift in Sources */,
 				A0C7A72D273158C800D09D74 /* Reusable.swift in Sources */,

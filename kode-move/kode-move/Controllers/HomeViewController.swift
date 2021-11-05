@@ -49,7 +49,6 @@ class HomeViewController: UIViewController{
         let logoButton = createCustomLogoBarButtonItem(image: "logo")
         navigationItem.leftBarButtonItem = logoButton
         navigationItem.rightBarButtonItem = searchButton
-        
     }
     
     @objc private func searchButton() { }
@@ -80,7 +79,6 @@ extension HomeViewController: UITableViewDataSource {
             cellTVShows.selectionStyle = .none
             return cellTVShows
         }
-        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -135,16 +133,16 @@ extension HomeViewController: HomePopularMovieTableViewCellDelegate, HomePopular
         show(error: error)
     }
     
-    func tappedPopularMove(_ indexPath: Int?) {
+    func tappedPopularMovie(_ idMovie: Int?) {
         let informationViewController = InformationViewController()
-        informationViewController.testIndex = indexPath
+        informationViewController.idMovie = idMovie
         self.navigationController?.delegate = self
         self.navigationController?.pushViewController(informationViewController, animated: true)
     }
     
-    func tappedPopularTVShows(_ indexPath: Int?) {
+    func tappedPopularTVShows(_ idTVShow: Int?) {
         let informationViewController = InformationViewController()
-        informationViewController.testIndex = indexPath
+        informationViewController.idTVShow = idTVShow
         self.navigationController?.delegate = self
         self.navigationController?.pushViewController(informationViewController, animated: true)
 

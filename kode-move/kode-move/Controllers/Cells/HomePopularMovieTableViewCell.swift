@@ -8,7 +8,7 @@
 import UIKit
 
 protocol HomePopularMovieTableViewCellDelegate: AnyObject {
-    func tappedPopularMove(_ indexPath: Int?) -> Void
+    func tappedPopularMovie(_ idMovie: Int?) -> Void
     func showError(_ error: Error?) -> Void
 }
 
@@ -87,7 +87,7 @@ extension HomePopularMovieTableViewCell: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 extension HomePopularMovieTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.tappedPopularMove(indexPath.row)
+        delegate?.tappedPopularMovie(popularMovies?.results[indexPath.row].id)
     }
 }
 

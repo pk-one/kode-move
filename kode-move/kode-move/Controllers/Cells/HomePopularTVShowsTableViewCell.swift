@@ -88,7 +88,8 @@ extension HomePopularTVShowsTableViewCell: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 extension HomePopularTVShowsTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.tappedPopularTVShows(indexPath.row)
+        delegate?.tappedPopularTVShows(popularTVShows?.results[indexPath.row].id)
+
     }
 }
 

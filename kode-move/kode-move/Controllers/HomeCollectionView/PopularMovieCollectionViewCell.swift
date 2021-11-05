@@ -58,7 +58,7 @@ class PopularMovieCollectionViewCell: UICollectionViewCell {
         posterImageView.kf.setImage(with: url)
         titleLabel.text = model.results[indexPath.row].title
         let date = model.results[indexPath.row].date
-        dateLabel.text = dateFormated(from: date)
+        dateLabel.text = dateFormatedHome(from: date)
     }
 }
 
