@@ -10,6 +10,7 @@ import Alamofire
 
 protocol NetworkService {
     func getPopularMovies(completion: @escaping (Result<PopularMoviesModel, Error>) ->Void )
+    func getPopularTVShows(completion: @escaping (Result<PopularTVShowsModel, Error>) ->Void )
 }
 
 class NetworkServiceImplementation: NetworkService {
@@ -30,7 +31,6 @@ class NetworkServiceImplementation: NetworkService {
             "sort_by" : "popularity.desc",
             "api_key" : apiKey,
             "language" : "ru-RU"
-            
         ]
         session.request(host + path, method: .get, parameters: params).response { response in
             switch response.result {
@@ -47,14 +47,27 @@ class NetworkServiceImplementation: NetworkService {
             }
         }
     }
+    
+    func getPopularTVShows(completion: @escaping (Result<PopularTVShowsModel, Error>) ->Void ) {
+        let path = "/discover/tv"
+        let params: Parameters = [
+            "sort_by" : "popularity.desc",
+            "api_key" : apiKey,
+            "language" : "ru-RU"
+        ]
+        session.request(host + path, method: .get, parameters: params).response { response in
+            switch response.result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let data):
+                guard let data = data else { return }
+                do {
+                    let tvShows = try JSONDecoder().decode(PopularTVShowsModel.self, from: data)
+                    completion(.success(tvShows))
+                } catch let jsonError {
+                    completion(.failure(jsonError))
+                }
+            }
+        }
+    }
 }
-
-
-//switch response.result {
-//case .failure(let error):
-//    completionHandler(.failure(error))
-//case .success(let value):
-//    let json = JSON(value)
-//    let fine = json.map { Fine($0, json: $1) }
-//    let realmFine = fine.map { RealmFineModels($0) }
-//    completionHandler(.success(realmFine))

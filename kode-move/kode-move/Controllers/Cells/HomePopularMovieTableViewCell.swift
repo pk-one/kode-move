@@ -7,20 +7,16 @@
 
 import UIKit
 
-protocol HomeTableViewCellDelegate: AnyObject {
+protocol HomePopularMovieTableViewCellDelegate: AnyObject {
     func tappedPopularMove(_ indexPath: Int?) -> Void
+    func showError(_ error: Error?) -> Void
 }
 
-class HomeTableViewCell: UITableViewCell {
-    
-    let networkService: NetworkService = NetworkServiceImplementation()
-
+class HomePopularMovieTableViewCell: UITableViewCell {
     private var popularMoviesCollectionView: UICollectionView!
-        
-    weak var delegate: HomeTableViewCellDelegate?
-    
+    let networkService: NetworkService = NetworkServiceImplementation()
     var popularMovies: PopularMoviesModel? = nil
-    
+    weak var delegate: HomePopularMovieTableViewCellDelegate?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -40,7 +36,7 @@ class HomeTableViewCell: UITableViewCell {
             guard let self = self else { return }
             switch result {
             case .failure(let error):
-                print(error)
+                self.delegate?.showError(error)
             case .success(let popularMoviesArray):
                 self.popularMovies = popularMoviesArray
                 self.popularMoviesCollectionView.reloadData()
@@ -51,15 +47,16 @@ class HomeTableViewCell: UITableViewCell {
     private func setupViews() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = ConstantsHome.galleryMinimumLineSpacing
+        layout.minimumLineSpacing = ConstantsHomeMovies.galleryMinimumLineSpacing
         popularMoviesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         popularMoviesCollectionView.register(PopularMovieCollectionViewCell.self, forCellWithReuseIdentifier: "PopularMovieCollectionViewCell")
         popularMoviesCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
-        popularMoviesCollectionView.contentInset = UIEdgeInsets(top: 0,
-                                    left: ConstantsHome.leftDistanceToCell,
+        popularMoviesCollectionView.contentInset = UIEdgeInsets(
+                                    top: 0,
+                                    left: ConstantsHomeMovies.leftDistanceToCell,
                                     bottom: 0,
-                                    right: ConstantsHome.rightDistanceToCell)
+                                    right: ConstantsHomeMovies.rightDistanceToCell)
         
         popularMoviesCollectionView.showsVerticalScrollIndicator = false
         popularMoviesCollectionView.showsHorizontalScrollIndicator = false
@@ -74,7 +71,7 @@ class HomeTableViewCell: UITableViewCell {
 }
 
 //MARK: - UICollectionViewDataSource
-extension HomeTableViewCell: UICollectionViewDataSource {
+extension HomePopularMovieTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return popularMovies?.results.count ?? 0
     }
@@ -88,30 +85,30 @@ extension HomeTableViewCell: UICollectionViewDataSource {
 }
 
 //MARK: - UICollectionViewDelegate
-extension HomeTableViewCell: UICollectionViewDelegate {
+extension HomePopularMovieTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.tappedPopularMove(indexPath.row)
     }
 }
 
 //MARK: - UICollectionViewDelegateFlowLayout
-extension HomeTableViewCell: UICollectionViewDelegateFlowLayout {
+extension HomePopularMovieTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        return CGSize(width: ConstantsHome.galleryItemWidth, height: frame.height)
+        return CGSize(width: ConstantsHomeMovies.galleryItemWidth, height: frame.height)
     }
 }
 
 
 //MARK: - setConstraint
-extension HomeTableViewCell {
+extension HomePopularMovieTableViewCell {
     private func setConstraint() {
         NSLayoutConstraint.activate([
             popularMoviesCollectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
             popularMoviesCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
             popularMoviesCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
             popularMoviesCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
-            popularMoviesCollectionView.heightAnchor.constraint(equalToConstant: 250)
+            popularMoviesCollectionView.heightAnchor.constraint(equalToConstant: 280)
 
         ])
     }
