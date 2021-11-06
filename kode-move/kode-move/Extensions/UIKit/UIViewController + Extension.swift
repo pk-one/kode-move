@@ -33,4 +33,11 @@ extension UIViewController {
         let menuBarItem = UIBarButtonItem(customView: button)
         return menuBarItem
     }
+    
+    func show(error: Error) {
+        let alertController = UIAlertController(title: "Ошибка", message: error.localizedDescription, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "Ок", style: .default, handler: nil)
+        alertController.addAction(okButton)
+        present(alertController, animated: true, completion: nil)
+    }
 }

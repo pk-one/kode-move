@@ -40,7 +40,7 @@ class ContextInformationTableViewCell: UITableViewCell {
     }
 }
 
-//MARK: -
+//MARK: - setConstraint
 extension ContextInformationTableViewCell {
     private func setConstraint() {
         NSLayoutConstraint.activate([

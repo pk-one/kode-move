@@ -8,11 +8,12 @@
 import UIKit
 
 class HomeViewController: UIViewController{
-        
+            
     private let containerTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.separatorStyle = .none
-        tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "HomeTableViewCell")
+        tableView.register(HomePopularMovieTableViewCell.self, forCellReuseIdentifier: "HomePopularMovieTableViewCell")
+        tableView.register(HomePopularTVShowsTableViewCell.self, forCellReuseIdentifier: "HomePopularTVShowsTableViewCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear
         tableView.showsVerticalScrollIndicator = false
@@ -48,7 +49,6 @@ class HomeViewController: UIViewController{
         let logoButton = createCustomLogoBarButtonItem(image: "logo")
         navigationItem.leftBarButtonItem = logoButton
         navigationItem.rightBarButtonItem = searchButton
-        
     }
     
     @objc private func searchButton() { }
@@ -68,10 +68,17 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(HomeTableViewCell.self, for: indexPath)
-        cell.delegate = self
-        cell.selectionStyle = .none
-        return cell
+        if indexPath.section == 0 {
+            let cellMovies = tableView.dequeueReusableCell(HomePopularMovieTableViewCell.self, for: indexPath)
+            cellMovies.delegate = self
+            cellMovies.selectionStyle = .none
+            return cellMovies
+        } else {
+            let cellTVShows = tableView.dequeueReusableCell(HomePopularTVShowsTableViewCell.self, for: indexPath)
+            cellTVShows.delegate = self
+            cellTVShows.selectionStyle = .none
+            return cellTVShows
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -120,11 +127,25 @@ extension HomeViewController {
     }
 }
 
-extension HomeViewController: HomeTableViewCellDelegate, UINavigationControllerDelegate {
-    func tappedPopularMove(_ indexPath: Int?) {
+//MARK: - HomePopularMovieTableViewCellDelegate, HomePopularTVShowsTableViewCellDelegate, UINavigationControllerDelegate
+extension HomeViewController: HomePopularMovieTableViewCellDelegate, HomePopularTVShowsTableViewCellDelegate, UINavigationControllerDelegate {
+    func showError(_ error: Error?) {
+        guard let error = error else { return }
+        show(error: error)
+    }
+    
+    func tappedPopularMovie(_ idMovie: Int?) {
         let informationViewController = InformationViewController()
-        informationViewController.testIndex = indexPath
+        informationViewController.idMovie = idMovie
         self.navigationController?.delegate = self
         self.navigationController?.pushViewController(informationViewController, animated: true)
+    }
+    
+    func tappedPopularTVShows(_ idTVShow: Int?) {
+        let informationViewController = InformationViewController()
+        informationViewController.idTVShow = idTVShow
+        self.navigationController?.delegate = self
+        self.navigationController?.pushViewController(informationViewController, animated: true)
+
     }
 }

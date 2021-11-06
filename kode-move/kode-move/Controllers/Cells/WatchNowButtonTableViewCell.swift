@@ -8,16 +8,17 @@
 import UIKit
 
 class WatchNowButtonTableViewCell: UITableViewCell {
-
-    private let button: UIButton = {
+    
+    let button: UIButton = {
         let button = UIButton()
         button.setTitle("Смотрите сейчас", for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.8841143847, green: 0.1051226184, blue: 0.2196062505, alpha: 1)
         button.layer.cornerRadius = 5
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.isUserInteractionEnabled = true
         return button
     }()
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -30,7 +31,7 @@ class WatchNowButtonTableViewCell: UITableViewCell {
     
     private func setupViews() {
         self.backgroundColor = .clear
-        self.addSubview(button)
+        self.contentView.addSubview(button)
     }
 }
 
@@ -38,6 +39,8 @@ class WatchNowButtonTableViewCell: UITableViewCell {
 extension WatchNowButtonTableViewCell {
     private func setConstraint() {
         NSLayoutConstraint.activate([
+            button.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+            button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
             button.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0),
             button.heightAnchor.constraint(equalToConstant: 50),
             button.widthAnchor.constraint(equalToConstant: 250)

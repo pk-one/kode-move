@@ -1,14 +1,13 @@
 //
-//  PopularMovieCollectionViewCell.swift
+//  PopularTVShowsCollectionViewCell.swift
 //  kode-move
 //
-//  Created by Pavel Olegovich on 02.11.2021.
+//  Created by Pavel Olegovich on 05.11.2021.
 //
 
 import UIKit
 import Kingfisher
-
-class PopularMovieCollectionViewCell: UICollectionViewCell {
+class PopularTVShowsCollectionViewCell: UICollectionViewCell {
     
     private let posterImageView: UIImageView = {
         let imageView = UIImageView()
@@ -18,9 +17,9 @@ class PopularMovieCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    private let titleLabel: UILabel = {
+    private let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Venom: Let There Be Carnage"
+        label.text = "Чаки"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = #colorLiteral(red: 0.968627451, green: 1, blue: 1, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -48,22 +47,22 @@ class PopularMovieCollectionViewCell: UICollectionViewCell {
     
     private func setupViews() {
         self.addSubview(posterImageView)
-        self.addSubview(titleLabel)
+        self.addSubview(nameLabel)
         self.addSubview(dateLabel)
     }
     
-    func configure(model: PopularMoviesModel, indexPath: IndexPath) {
+    func configure(model: PopularTVShowsModel, indexPath: IndexPath) {
         let host = "https://image.tmdb.org/t/p/w500"
         guard let url = URL(string: host + model.results[indexPath.row].posterUrl) else { return }
         posterImageView.kf.setImage(with: url)
-        titleLabel.text = model.results[indexPath.row].title
+        nameLabel.text = model.results[indexPath.row].name
         let date = model.results[indexPath.row].date
         dateLabel.text = dateFormatedHome(from: date)
     }
 }
 
 //MARK: - setConstraint
-extension PopularMovieCollectionViewCell {
+extension PopularTVShowsCollectionViewCell {
     private func setConstraint() {
         NSLayoutConstraint.activate([
             posterImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
@@ -73,13 +72,13 @@ extension PopularMovieCollectionViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 5),
-            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+            nameLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 5),
+            nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+            nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
         ])
         
         NSLayoutConstraint.activate([
-            dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 0),
+            dateLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 0),
             dateLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
             dateLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
         ])
