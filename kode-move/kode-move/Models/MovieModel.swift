@@ -15,6 +15,7 @@ struct MovieModel: Codable {
     let runtime: Int
     let title: String
     let rating: Double
+    let homepage: String
     let genres: [Genres]
   
     struct Genres: Codable {
@@ -26,7 +27,7 @@ struct MovieModel: Codable {
         case backgroundPoster = "poster_path"
         case date = "release_date"
         case rating = "vote_average"
-        case id, title, runtime, genres
+        case id, title, runtime, genres, homepage
     }
 }
 

@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A00B8E192736A1B800255C81 /* ShimmerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00B8E182736A1B800255C81 /* ShimmerCollectionViewCell.swift */; };
 		A05397E0273307E50016DC10 /* PopularMoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05397DF273307E50016DC10 /* PopularMoviesModel.swift */; };
 		A05397E3273308660016DC10 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A05397E2273308660016DC10 /* Alamofire */; };
 		A05397E7273308B30016DC10 /* SessionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05397E6273308B30016DC10 /* SessionInfo.swift */; };
 		A05397E92733094B0016DC10 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05397E82733094B0016DC10 /* NetworkService.swift */; };
 		A05397EC2733267F0016DC10 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A05397EB2733267F0016DC10 /* Kingfisher */; };
-		A05397F2273549C10016DC10 /* UITableViewCell + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05397F1273549C10016DC10 /* UITableViewCell + Extension.swift */; };
 		A06E38452732DB5A0059EAB8 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06E38442732DB5A0059EAB8 /* UIView + Extension.swift */; };
 		A06E38472732EDCA0059EAB8 /* WatchNowButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06E38462732EDCA0059EAB8 /* WatchNowButtonTableViewCell.swift */; };
 		A0748F692735C23900D7F22F /* DateFormater.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0748F682735C23900D7F22F /* DateFormater.swift */; };
@@ -40,10 +40,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A00B8E182736A1B800255C81 /* ShimmerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerCollectionViewCell.swift; sourceTree = "<group>"; };
 		A05397DF273307E50016DC10 /* PopularMoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesModel.swift; sourceTree = "<group>"; };
 		A05397E6273308B30016DC10 /* SessionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionInfo.swift; sourceTree = "<group>"; };
 		A05397E82733094B0016DC10 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		A05397F1273549C10016DC10 /* UITableViewCell + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell + Extension.swift"; sourceTree = "<group>"; };
 		A06E38442732DB5A0059EAB8 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		A06E38462732EDCA0059EAB8 /* WatchNowButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNowButtonTableViewCell.swift; sourceTree = "<group>"; };
 		A0748F682735C23900D7F22F /* DateFormater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormater.swift; sourceTree = "<group>"; };
@@ -119,7 +119,6 @@
 			children = (
 				A0C5A84A2731828400A4B1D4 /* UIViewController + Extension.swift */,
 				A06E38442732DB5A0059EAB8 /* UIView + Extension.swift */,
-				A05397F1273549C10016DC10 /* UITableViewCell + Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -128,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				A0C5A8582731B97300A4B1D4 /* CastCollectionViewCell.swift */,
+				A00B8E182736A1B800255C81 /* ShimmerCollectionViewCell.swift */,
 			);
 			path = InformationCollectionView;
 			sourceTree = "<group>";
@@ -316,7 +316,6 @@
 				A0E2CF5D27315CC000DD2B88 /* PopularMovieCollectionViewCell.swift in Sources */,
 				A0C5A8542731B6B300A4B1D4 /* CellForCollectionInformationTableViewCell.swift in Sources */,
 				A0FF487727355A8300605557 /* MovieModel.swift in Sources */,
-				A05397F2273549C10016DC10 /* UITableViewCell + Extension.swift in Sources */,
 				A0C5A8522731B67B00A4B1D4 /* InformationViewController.swift in Sources */,
 				A05397E0273307E50016DC10 /* PopularMoviesModel.swift in Sources */,
 				A0C7A72A2731562E00D09D74 /* HomePopularMovieTableViewCell.swift in Sources */,
@@ -329,6 +328,7 @@
 				A05397E7273308B30016DC10 /* SessionInfo.swift in Sources */,
 				A0FF48752735569D00605557 /* PopularTVShowsModel.swift in Sources */,
 				A0E2CF6027316C2D00DD2B88 /* Constants.swift in Sources */,
+				A00B8E192736A1B800255C81 /* ShimmerCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

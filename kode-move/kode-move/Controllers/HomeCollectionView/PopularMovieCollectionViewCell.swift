@@ -62,6 +62,7 @@ class PopularMovieCollectionViewCell: UICollectionViewCell {
     }
 }
 
+//MARK: - setConstraint
 extension PopularMovieCollectionViewCell {
     private func setConstraint() {
         NSLayoutConstraint.activate([

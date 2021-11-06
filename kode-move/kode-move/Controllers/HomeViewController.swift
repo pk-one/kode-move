@@ -127,6 +127,7 @@ extension HomeViewController {
     }
 }
 
+//MARK: - HomePopularMovieTableViewCellDelegate, HomePopularTVShowsTableViewCellDelegate, UINavigationControllerDelegate
 extension HomeViewController: HomePopularMovieTableViewCellDelegate, HomePopularTVShowsTableViewCellDelegate, UINavigationControllerDelegate {
     func showError(_ error: Error?) {
         guard let error = error else { return }

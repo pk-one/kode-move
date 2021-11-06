@@ -15,6 +15,7 @@ struct TVShowModel: Codable {
     let name: String
     let rating: Double
     let date: String
+    let homepage: String
     let genres: [Genres]
     
     struct Genres: Codable {
@@ -27,7 +28,7 @@ struct TVShowModel: Codable {
         case runtime = "episode_run_time"
         case date = "first_air_date"
         case rating = "vote_average"
-        case id, name, genres
+        case id, name, genres, homepage
     }
 }
 

@@ -61,6 +61,7 @@ class PopularTVShowsCollectionViewCell: UICollectionViewCell {
     }
 }
 
+//MARK: - setConstraint
 extension PopularTVShowsCollectionViewCell {
     private func setConstraint() {
         NSLayoutConstraint.activate([

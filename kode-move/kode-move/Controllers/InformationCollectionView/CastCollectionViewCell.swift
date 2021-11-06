@@ -67,6 +67,7 @@ class CastCollectionViewCell: UICollectionViewCell {
     }
 }
 
+//MARK: - setConstraint
 extension CastCollectionViewCell {
     private func setConstraint() {
         NSLayoutConstraint.activate([

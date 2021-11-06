@@ -22,9 +22,9 @@ class InformationViewController: UIViewController {
         tableView.showsVerticalScrollIndicator = false
         tableView.showsHorizontalScrollIndicator = false
         tableView.backgroundColor = .clear
+        tableView.isUserInteractionEnabled = true
         return tableView
     }()
-    
     
     private let gradientView: UIView = {
         let view = UIView()
@@ -43,6 +43,7 @@ class InformationViewController: UIViewController {
     var idTVShow: Int? = 0
     var movie: MovieModel? = nil
     var tvShow: TVShowModel? = nil
+    var urlSite: String = ""
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -152,6 +153,12 @@ extension InformationViewController: UITableViewDataSource {
             return cellCollection
         } else if indexPath.section == 2 {
             let cellButton = tableView.dequeueReusableCell(WatchNowButtonTableViewCell.self, for: indexPath)
+            cellButton.button.addTarget(self, action: #selector(tappedWatchNow(_:)), for: .touchUpInside)
+            if idMovie != 0 {
+                urlSite = movie?.homepage ?? ""
+            } else {
+                urlSite = tvShow?.homepage ?? ""
+            }
             cellButton.selectionStyle = .none
             return cellButton
         }
@@ -207,6 +214,12 @@ extension InformationViewController: UITableViewDataSource {
             return 30
         }
     }
+    
+    @objc func tappedWatchNow(_ sender: UIButton) {
+        if let url = URL(string: urlSite) {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
 }
 
 
@@ -219,8 +232,7 @@ extension InformationViewController: UITableViewDelegate {
 extension InformationViewController: CellForCollectionInformationTableViewCellDelegate {
     func showError(_ error: Error?) {
         guard let error = error else { return }
-//        show(error: error)
-        print(error)
+        show(error: error)
     }
 }
 

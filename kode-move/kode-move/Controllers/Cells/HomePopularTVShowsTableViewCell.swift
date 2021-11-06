@@ -101,7 +101,6 @@ extension HomePopularTVShowsTableViewCell: UICollectionViewDelegateFlowLayout {
     }
 }
 
-
 //MARK: - setConstraint
 extension HomePopularTVShowsTableViewCell {
     private func setConstraint() {

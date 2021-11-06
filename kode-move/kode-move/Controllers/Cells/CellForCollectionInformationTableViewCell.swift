@@ -15,11 +15,12 @@ class CellForCollectionInformationTableViewCell: UITableViewCell {
     
     private let networkService: NetworkService = NetworkServiceImplementation()
     private var castCollectionView: UICollectionView!
+    private var isLoaded = false
+    
     var idMovie: Int? = 0
     var idTVShow: Int? = 0
-    
     var casts: CastModel? = nil
-    
+
     weak var delegate: CellForCollectionInformationTableViewCellDelegate?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -28,7 +29,7 @@ class CellForCollectionInformationTableViewCell: UITableViewCell {
         setupViews()
         setDelegate()
         setConstraint()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.getCastsByID()
         }
     }
@@ -43,6 +44,7 @@ class CellForCollectionInformationTableViewCell: UITableViewCell {
         layout.minimumLineSpacing = ConstantsInformation.galleryMinimumLineSpacing
         castCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         castCollectionView.register(CastCollectionViewCell.self, forCellWithReuseIdentifier: "CastCollectionViewCell")
+        castCollectionView.register(ShimmerCollectionViewCell.self, forCellWithReuseIdentifier: "ShimmerCollectionViewCell")
         castCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         castCollectionView.contentInset = UIEdgeInsets(
@@ -70,6 +72,7 @@ class CellForCollectionInformationTableViewCell: UITableViewCell {
                 switch result {
                 case .success(let castsArray):
                     self.casts = castsArray
+                    self.isLoaded = true
                     self.castCollectionView.reloadData()
                 case .failure(let error):
                     self.delegate?.showError(error)
@@ -82,6 +85,7 @@ class CellForCollectionInformationTableViewCell: UITableViewCell {
                 switch result {
                 case .success(let castsArray):
                     self.casts = castsArray
+                    self.isLoaded = true
                     self.castCollectionView.reloadData()
                 case .failure(let error):
                     self.delegate?.showError(error)
@@ -95,14 +99,23 @@ class CellForCollectionInformationTableViewCell: UITableViewCell {
 //MARK: - UICollectionViewDataSource
 extension CellForCollectionInformationTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return casts?.cast.count ?? 0
+        if isLoaded {
+            return casts?.cast.count ?? 0
+        } else {
+            return 5
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(CastCollectionViewCell.self, for: indexPath)
-        guard let casts = casts else { return UICollectionViewCell() }
-        cell.configure(model: casts, indexPath: indexPath)
-        return cell
+        if isLoaded {
+            let cell = collectionView.dequeueReusableCell(CastCollectionViewCell.self, for: indexPath)
+            guard let casts = casts else { return UICollectionViewCell() }
+            cell.configure(model: casts, indexPath: indexPath)
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(ShimmerCollectionViewCell.self, for: indexPath)
+            return cell
+        }
     }
 }
 
@@ -131,3 +144,5 @@ extension CellForCollectionInformationTableViewCell {
         ])
     }
 }
+
+

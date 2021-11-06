@@ -32,7 +32,7 @@ class NetworkServiceImplementation: NetworkService {
         return Session(configuration: config)
     }()
 
-    
+    //MARK: - getPopularMovies
     func getPopularMovies(completion: @escaping (Result<PopularMoviesModel, Error>) ->Void ) {
         let path = "/discover/movie"
         let params: Parameters = [
@@ -56,6 +56,7 @@ class NetworkServiceImplementation: NetworkService {
         }
     }
     
+    //MARK: - getPopularTVShows
     func getPopularTVShows(completion: @escaping (Result<PopularTVShowsModel, Error>) ->Void ) {
         let path = "/discover/tv"
         let params: Parameters = [
@@ -79,6 +80,7 @@ class NetworkServiceImplementation: NetworkService {
         }
     }
     
+    //MARK: - getMovie
     func getMovie(id: Int, completion: @escaping (Result<MovieModel, Error>) ->Void ) {
         let path = "/movie/\(id)"
         let params: Parameters = [
@@ -101,6 +103,7 @@ class NetworkServiceImplementation: NetworkService {
         }
     }
     
+    //MARK: - getTVShow
     func getTVShow(id: Int, completion: @escaping (Result<TVShowModel, Error>) ->Void ) {
         let path = "/tv/\(id)"
         let params: Parameters = [
@@ -123,6 +126,7 @@ class NetworkServiceImplementation: NetworkService {
         }
     }
     
+    //MARK: - getCast
     func getCast(id: Int, from: getFrom , completion: @escaping (Result<CastModel, Error>) ->Void ) {
         let path = "/\(from)/\(id)/credits"
         let params: Parameters = [
